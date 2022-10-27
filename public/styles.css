@@ -1,0 +1,20 @@
+.container {
+    width: 25vw;
+    height: 75vh;
+    overflow: auto;
+    border: black;
+}
+
+.display {
+    width: 90%;
+    height: 10vh;
+    margin: 5%;
+    border: black;
+}
+}
+
+.buttons-area {
+    width: 90%;
+    margin: 5%;
+    border: black;
+}
