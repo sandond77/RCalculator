@@ -1,8 +1,15 @@
+body {
+    background-color: #005cbf;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
 .container {
+    margin-top: 15vh;
     width: 25vw;
     height: 70vh;
     overflow: auto;
     border: black solid 1px;
+    border-radius: 5%;
     background-color: #7d7d7d;
 }
 
@@ -11,6 +18,7 @@
     height: 15%;
     margin: 5% 5% 10% 5%;
     border: black solid 1px;
+    border-radius: 2%;
     background-color: black;
     color: white;
 }
