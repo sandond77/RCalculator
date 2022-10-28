@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from './Button';
 
 export default function Calculator() {
@@ -14,7 +14,7 @@ export default function Calculator() {
               <Button 
                 value = {value}
                 key = {i}
-                setValue = {setFirstValues}
+                setValue = {setFirstValues};
               />
             )}
         </div>
