@@ -6,30 +6,11 @@ export default function Button(props) {
     console.log(val)
 
     if(typeof(val) === "number"){
-      console.log('num');
-      let concat;
-      
-      if(props.displayValues == null){
-        concat = val
-      } else {
-        concat = props.displayValues.toString();
-        concat += val;
-      }
 
-      if(props.setTempValues === null){
-        props.setTempValues(parseInt(concat))
-      }
-      
-      props.setDisplayValues(parseInt(concat));
     } else if(val !== "=") {
-        console.log(val + ' not num' + typeof(val))
-        props.setTempValues(null)
-        props.setDisplayValues(val);
-        props.setOperator(val);
+
     } else if(val === "=") {
-        let total = handleMath(props.tempValues, props.operator, props.totalValue);
-        props.setTotalValues(total);
-        props.setDisplayValues(total);
+
     }
   }
 
@@ -47,7 +28,7 @@ export default function Button(props) {
         return null
     }
   }
-  
+
   return (
     <button 
       type="button" 
