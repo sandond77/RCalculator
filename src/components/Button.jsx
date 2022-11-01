@@ -8,17 +8,46 @@ export default function Button(props) {
     if(typeof(val) === "number"){
       console.log('num');
       let concat;
-      if(props.displayValues === 0){
+      
+      if(props.displayValues == null){
         concat = val
       } else {
         concat = props.displayValues.toString();
         concat += val;
       }
+
+      if(props.setTempValues === null){
+        props.setTempValues(parseInt(concat))
+      }
+      
       props.setDisplayValues(parseInt(concat));
-    } else if(val) {
-      console.log('not num');
+    } else if(val !== "=") {
+        console.log(val + ' not num' + typeof(val))
+        props.setTempValues(null)
+        props.setDisplayValues(val);
+        props.setOperator(val);
+    } else if(val === "=") {
+        let total = handleMath(props.tempValues, props.operator, props.totalValue);
+        props.setTotalValues(total);
+        props.setDisplayValues(total);
     }
   }
+
+  function handleMath(val, op, val2){
+    switch(op){
+      case "+":
+        return val+val2
+      case "-":
+        return val - val2
+      case "x":
+        return val * val2
+      case "/":
+        return val/val2
+      default:
+        return null
+    }
+  }
+  
   return (
     <button 
       type="button" 
