@@ -8,13 +8,13 @@ export default function Button(props) {
     if(typeof(val) === "number"){
       console.log('num');
       let concat;
-      if(props.firstValues === 0){
+      if(props.displayValues === 0){
         concat = val
       } else {
-        concat = props.firstValues.toString();
+        concat = props.displayValues.toString();
         concat += val;
       }
-      props.setFirstValues(parseInt(concat));
+      props.setDisplayValues(parseInt(concat));
     } else if(val) {
       console.log('not num');
     }
