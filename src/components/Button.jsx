@@ -3,20 +3,44 @@ import React from 'react'
 export default function Button(props) {
   function handleClick(event){
     let val = event.target.value;
-    console.log(val)
-    if(typeof(parseInt(val)) === "number" && !props.operator){
-      console.log(number)
+    let output;
+
+    if(val === "Clear"){
+      props.setTempValues(null);
+      props.setOperator(null);
+      props.setTotal(null);
+      props.setDisplayValues(null);
+    }
+
+    if(!isNaN(parseInt(val)) && !output){
+      console.log("number");
+
       if(props.tempValues){
         val = props.tempValues + val;
       }
+
       props.setTempValues(val);
-      props.setDisplayValues(val);
+      
+      if(!props.operator){
+        console.log(1)
+        props.setDisplayValues(val);
+      } else {
+        console.log(2)
+        props.setDisplayValues(props.total + props.operator + val);
+      }
     } else if(val !== "=" && !props.operator) {
+      console.log('operator path')
+      props.setOperator(val);
+      val = props.displayValues + val;
+      props.setDisplayValues(val);
       props.setTotal(props.tempValues);
-      props.tempValues();
-      console.log('operator' + props.tempValues)
-    } else if(val === "=" && !props.operator) {
+      props.setTempValues(null);
+    } else if(val === "=" && props.operator && props.tempValues && props.total) {
       console.log("equals")
+      let val1 = parseInt(props.total);
+      let val2 = parseInt(props.tempValues);
+      output = handleMath(val1, props.operator, val2);
+      props.setDisplayValues(props.total + props.operator + props.tempValues + "=" + output);
     } 
   }
 
