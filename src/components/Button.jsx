@@ -3,7 +3,6 @@ import React from 'react'
 export default function Button(props) {
   function handleClick(event){
     let val = event.target.value;
-    let output;
 
     if(val === "Clear"){
       props.setTempValues(null);
@@ -12,7 +11,7 @@ export default function Button(props) {
       props.setDisplayValues(null);
     }
 
-    if(!isNaN(parseInt(val)) && !output){
+    if(!isNaN(parseInt(val)) && props.operator !== "="){
       console.log("number");
 
       if(props.tempValues){
@@ -39,8 +38,9 @@ export default function Button(props) {
       console.log("equals")
       let val1 = parseInt(props.total);
       let val2 = parseInt(props.tempValues);
-      output = handleMath(val1, props.operator, val2);
+      let output = handleMath(val1, props.operator, val2);
       props.setDisplayValues(props.total + props.operator + props.tempValues + "=" + output);
+      props.setOperator("=");
     } 
   }
 
