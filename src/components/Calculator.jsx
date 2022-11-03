@@ -3,7 +3,7 @@ import Button from './Button';
 
 export default function Calculator() {
   const values = [7, 8 , 9, "/", 4, 5, 6, "-", 1, 2, 3, "+", "Clear", 0, "=", "x"]
-  const [displayValues, setDisplayValues] = useState();
+  const [displayValues, setDisplayValues] = useState("Enter Numbers");
   const [tempValues, setTempValues] = useState();
   const [operator, setOperator] = useState();
   const [total, setTotal] = useState();
