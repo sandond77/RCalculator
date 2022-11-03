@@ -4,7 +4,7 @@ export default function Button(props) {
   function handleClick(event){
     let val = event.target.value;
 
-    if(val === "Clear")){
+    if(val === "Clear"){
       props.setTempValues();
       props.setOperator();
       props.setTotal();
