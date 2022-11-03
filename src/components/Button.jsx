@@ -2,16 +2,22 @@ import React from 'react'
 
 export default function Button(props) {
   function handleClick(event){
-    const val = isNaN(parseInt(event.target.value)) ? event.target.value : parseInt(event.target.value);
+    let val = event.target.value;
     console.log(val)
-
-    if(typeof(val) === "number"){
-
-    } else if(val !== "=") {
-
-    } else if(val === "=") {
-
-    }
+    if(typeof(parseInt(val)) === "number" && !props.operator){
+      console.log(number)
+      if(props.tempValues){
+        val = props.tempValues + val;
+      }
+      props.setTempValues(val);
+      props.setDisplayValues(val);
+    } else if(val !== "=" && !props.operator) {
+      props.setTotal(props.tempValues);
+      props.tempValues();
+      console.log('operator' + props.tempValues)
+    } else if(val === "=" && !props.operator) {
+      console.log("equals")
+    } 
   }
 
   function handleMath(val, op, val2){
